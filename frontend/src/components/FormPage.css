@@ -1,4 +1,21 @@
-form {
-  margin: auto;
+.main {
+  background-image: url("https://www.themediaant.com/blog/wp-content/uploads/2021/11/Movie-1200-630.jpg");
+  height: 100vh;
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.transbox {
+  background-color: #ffffff;
+  opacity: 0.5;
+  margin: 3%;
+  padding: 20px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
   width: 50%;
+  float: right;
+  text-align: center;
 }

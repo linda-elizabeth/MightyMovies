@@ -1,5 +1,4 @@
 import { FormControl, FormLabel, Row } from "react-bootstrap";
-import "./FormPage.css";
 
 const FormElement = (props) => {
   const { label, onChange, ...inputprops } = props;
