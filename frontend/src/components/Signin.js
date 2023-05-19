@@ -11,6 +11,7 @@ const Signin = () => {
       label: "Email",
       name: "email",
       type: "email",
+      errorMessage: "Enter a valid email id!",
       required: true,
     },
     {
@@ -18,15 +19,24 @@ const Signin = () => {
       label: "Password",
       name: "password",
       type: "password",
+      pattern: "^(?=.*[a-z])(?=.*[A-Z]).{8,}$",
+      errorMessage:
+        "Password should contain atleast 8 characters, including a lowercase and uppercase letter",
       required: true,
     },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8000/api/signin", values).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("http://localhost:8000/api/signin", values)
+      .then((res) => {
+        console.log(res);
+        alert("Signin successful!");
+      })
+      .catch((err) => {
+        alert(err.response.data.detail);
+      });
   };
 
   const onChange = (e) => {
@@ -35,7 +45,7 @@ const Signin = () => {
   return (
     <div className="main">
       <div className="transbox">
-        Welcome Back!
+        <div style={{ textAlign: "center" }}>Welcome Back!</div>
         <Form
           className="rounded p-4 align-items-center"
           onSubmit={handleSubmit}
@@ -48,8 +58,9 @@ const Signin = () => {
               onChange={onChange}
             />
           ))}
-
-          <Button type="submit">Sign-in</Button>
+          <div style={{ textAlign: "center" }}>
+            <Button type="submit">Sign-in</Button>
+          </div>
         </Form>
       </div>
     </div>

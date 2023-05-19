@@ -11,8 +11,12 @@ collection = database.user
 
 async def create_user(user: User):
     document = user.dict()
-    result = await collection.insert_one(document)
-    return document
+    result=await collection.find_one({"$and":[{'email':user.email},{'password':user.password}]})
+    if(result is None):
+        validuser = await collection.insert_one(document)
+        return document
+    else:
+        print("User already exists!")
 
 
 async def get_user(user: User):

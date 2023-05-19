@@ -27,11 +27,11 @@ def home_route():
 # otherwise ObjectId not iterable error will come
 @app.post("/api/signup", response_model=User)
 async def signup_route(user: User):
-
     response = await create_user(user)
     if response:
         return response
-    raise HTTPException(400, "Something went wrong")
+    raise HTTPException(409,"User already exists!")
+    
 
 
 @app.post("/api/signin", response_model=User)

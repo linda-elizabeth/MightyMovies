@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
-password_regex = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+password_regex = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
 
 
 class User(BaseModel):

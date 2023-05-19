@@ -11,11 +11,23 @@
 
 .transbox {
   background-color: #ffffff;
-  opacity: 0.5;
+  opacity: 0.7;
   margin: 3%;
   padding: 20px;
   box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
   width: 50%;
   float: right;
-  text-align: center;
+}
+span {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span {
+  display: block;
 }
